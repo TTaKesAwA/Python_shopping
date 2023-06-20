@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template
 
-food_bp = Blueprint('item', __name__, url_prefix='/item')
+d_item_bp = Blueprint('d_item', __name__, url_prefix='/d_item')
 
-@food_bp.route('/list')
+@d_item_bp.route('/list')
 def d_item_list():
   
     d_item_list = [
@@ -10,4 +10,4 @@ def d_item_list():
         ('ティッシュ', '埼玉', 300),
     ]
     
-    return render_template('item/list.html', d_items=d_item_list)
+    return render_template('d_item/list.html', d_items=d_item_list)
