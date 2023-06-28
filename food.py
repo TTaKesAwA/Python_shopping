@@ -1,13 +1,25 @@
-from flask import Blueprint, render_template
+import psycopg2
 
-food_bp = Blueprint('food', __name__, url_prefix='/food')
+def aaaaa(key):
+    connection = psycopg2.connect(user='postgres',
+                              password= 'Jyobijyobi1142',
+                              host='localhost',
+                              database='postgres')
 
-@food_bp.route('/list')
-def food_list():
-  
-    food_list = [
-         ('魚', '三陸',  100),
-        ('ネギ', '群馬', 100),
-    ]
-    
-    return render_template('food/list.html', foods=food_list)
+    cursor = connection.cursor()
+
+    sql = "SELECT * FROM food"
+    key = '%' + key + '%'
+    cursor.execute(sql(key,))
+
+    rows = cursor.fetchall()
+    row = cursor.fetchone()
+    result = []
+    for row in rows:
+        result.append(row[1])
+
+    cursor.close()
+    connection.close()
+    return result
+user_list=aaaaa('i')
+print(user_list)
