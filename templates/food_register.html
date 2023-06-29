@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <from action="{{url_for('food_register')}}" method="post">
+    商品名:<input type="text" name="name"><br>
+    生産地・製造元:<input type="text" name="make"><br>
+    価格:<input type="number" name="worth"><br>
+    <button type="submit">登録</button>
+</body>
+</html>
