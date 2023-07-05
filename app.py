@@ -3,11 +3,16 @@ import random
 import db
 
 
+
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
+    return render_template('index.html')
+
+@app.route('/topmenuback')
+def topmenu_back():
     return render_template('index.html')
 
 @app.route('/foodlist')
@@ -25,10 +30,41 @@ def food_register():
     name= request.form.get('name')
     make= request.form.get('make')
     worth= request.form.get('worth')
+    stock= request.form.get('stock')
     
-    db.insert_food(name, make,worth)
+    db.insert_food(name, make, worth, stock)
     
     return render_template('register_sucsess.html')
+
+@app.route('/fooddeleteinput')
+def food_delete_input():
+    return render_template('food_delete.html')
+
+@app.route('/food_delete', methods=['POST'])
+def food_delete():
+ 
+    id= request.form.get('id')
+   
+    
+    db.delete_food(id)
+    
+    return render_template('delete_sucsess.html')
+
+@app.route('/foodsearchinput')
+def food_search_input():
+    return render_template('food_search.html')
+
+@app.route('/food_search', methods=['POST'])
+def food_search():
+ 
+    id= request.form.get('id')
+    name= request.form.get('name')
+    make= request.form.get('make')
+    
+    
+    db.search_food(id,name,make)
+    
+    return render_template('search_result.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
