@@ -33,21 +33,21 @@ def insert_food(name,make,worth,stock):
     connection.close()
     
     return count
-def search_food(id,name,make):
+
+def search_food(keyword):
     connection = get_connection()
     connection.cursor()
     cursor = connection.cursor()
-    sql = 'SELECT * FROM food WHERE id like %s OR name like %s OR make like %s'
+    sql = 'SELECT * FROM food WHERE name LIKE %s'
+    print('キーワード：'+keyword)
+    keyword='%'+keyword+'%'
+    cursor.execute(sql,(keyword,))
     
-    cursor.execute(sql,(id,name,make))
+    rows = cursor.fetchall()
     
-    count = cursor.rowcount
-    
-    connection.commit()
     cursor.close()
     connection.close()
-    
-    return count
+    return rows
 
 def delete_food(id):
     connection = get_connection()

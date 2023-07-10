@@ -6,11 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <p>検索したい商品のID、商品名、生産地・製造元のいずれかを入力してください。</p>
+    <p>検索したい商品の商品名を入力してください。</p>
     <form action="{{url_for('food_search')}}" method="post">
-    ID:<input type="text" name="id"><br>
-    商品名:<input type="text" name="name"><br>
-    生産地・製造元:<input type="text" name="make"><br>
+    <input type="text" name="keyword"><br>
+   
     <button type="submit">検索</button>
 </form>
 </body>

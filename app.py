@@ -20,6 +20,14 @@ def food_list():
     food_list = db.select_all_foods()
     return render_template('food_list.html', food=food_list)
 
+@app.route('/food_search', methods=['POST'])
+def food_search():
+    keyword= request.form.get('keyword')
+    
+    s_keyword=db.search_food(keyword)
+    
+    return render_template('search_result.html',food=s_keyword)
+
 @app.route('/foodregisterinput')
 def food_register_input():
     return render_template('food_register.html')
@@ -54,17 +62,7 @@ def food_delete():
 def food_search_input():
     return render_template('food_search.html')
 
-@app.route('/food_search', methods=['POST'])
-def food_search():
- 
-    id= request.form.get('id')
-    name= request.form.get('name')
-    make= request.form.get('make')
-    
-    
-    db.search_food(id,name,make)
-    
-    return render_template('search_result.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
