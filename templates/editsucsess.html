@@ -6,12 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <p>検索したい商品の商品名を入力してください。</p>
-    <form action="{{url_for('food_search')}}" method="post">
-    <input type="text" name="keyword"><br>
-   
-    <button type="submit">検索</button>
+    更新が完了しました。
+    <a class href="{{url_for('food_edit_input')}}">商品情報の編集に戻る</a>
     <a class href="{{url_for('admin_topmenu_back')}}">トップメニューに戻る</a>
-</form>
 </body>
 </html>

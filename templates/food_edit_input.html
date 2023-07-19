@@ -6,10 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    削除する商品のIDを入力してください。
-    <form action="{{url_for('food_delete')}}" method="post">
+    <form action="{{url_for('food_edit')}}" method="post">
         ID:<input type="text" name="id"><br>
-        <button type="submit">削除</button>
+        商品名:<input type="text" name="name"><br>
+        生産地・製造元:<input type="text" name="make"><br>
+        価格:<input type="text" name="worth"><br>
+        在庫:<input type="text" name="stock"><br>
+        <button type="submit">編集</button>
         </form>
         <a class href="{{url_for('admin_topmenu_back')}}">トップメニューに戻る</a>
 </body>
