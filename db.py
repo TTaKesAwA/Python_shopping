@@ -120,14 +120,14 @@ def insert_user(user_name, mail,password):
         
     return count
 
-def login(user_name, password):
-    sql = 'SELECT hashed_password, salt FROM customer WHERE name = %s' #ユーザー名がに件取れる可能性があるから直すnmae=%sのとこ
+def login(username, mail,password):
+    sql = 'SELECT password, salt FROM ecuser WHERE name = %s AND mail = %s' 
     flg = False
 
     try :
         connection = get_connection()
         cursor = connection.cursor()
-        cursor.execute(sql, (user_name, ))
+        cursor.execute(sql, (username, mail))
         user = cursor.fetchone()
 
         if user != None:

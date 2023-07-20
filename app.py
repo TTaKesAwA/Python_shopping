@@ -5,8 +5,8 @@ from datetime import timedelta
 
 
 
-
 app = Flask(__name__)
+app.secret_key =''.join(random.choices(string.ascii_letters,k=256))
 
 
 
@@ -98,20 +98,20 @@ def index():
     
 @app.route('/', methods=['POST'])
 def login():
-    user_name = request.form.get('username')
+    username = request.form.get('username')
     mail = request.form.get('mail')
     password = request.form.get('password')
     
-    if db.login(user_name, mail,password):
-        session['user'] = True #sessionにuserバリューにTrueを保存
-        # 下2行は操作しないとログインページに戻されるやつ
+    if db.login(username, mail,password):
+        session['user'] = True
         session.permanent = True
         app.permanent_session_lifetime = timedelta(minutes=100)
+        
         return redirect(url_for('mypage'))
     else:
         error = 'ログインに失敗しました。'
         input_data  = {
-            'user_name': user_name,
+            'username': username,
             'mail': mail,
             'password': password
         }
