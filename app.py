@@ -48,6 +48,14 @@ def food_edit():
     
     return render_template('editsucsess.html')
 
+@app.route('/foodbuy', methods=['POST'])
+def food_buy():
+    id= request.form.get('id')
+    
+    db.food_buy(id)
+    
+    return render_template('buysucsess.html')
+
 @app.route('/food_search', methods=['POST'])
 def food_search():
     keyword= request.form.get('keyword')

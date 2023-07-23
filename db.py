@@ -34,6 +34,21 @@ def edit_food(id,name,make,worth,stock):
     
     return count
 
+def food_buy(id):
+    connection = get_connection()
+    cursor = connection.cursor()
+    sql = 'UPDATE food SET stock = stock - 1 WHERE id=%s;'
+    
+    cursor.execute(sql,(id,))
+    
+    count = cursor.rowcount
+    
+    connection.commit()
+    cursor.close()
+    connection.close()
+    
+    return count
+
 def insert_food(name,make,worth,stock):
     connection = get_connection()
     cursor = connection.cursor()

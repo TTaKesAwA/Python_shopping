@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{{url_for('static', filename='favicon/favicon.jpg')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/kadai.css') }}">
-    <title>商品検索</title>
+    <title>購入完了</title>
 </head>
 <style>
     body{
@@ -15,13 +15,7 @@
 </style>
 <body>
     <div class="button008">
-    <p>検索したい商品の商品名を入力してください。</p>
-    <form action="{{url_for('user_food_search')}}" method="post">
-    <input type="text" name="keyword"><br>
-   
-    <button type="submit">検索</button>
+    購入が完了しました。
     <a class href="{{url_for('mypageback')}}">トップメニューに戻る</a>
-</form>
-
 </body>
 </html>
