@@ -19,10 +19,19 @@ def admin_kari():
 def admin_topmenu_back():
     return render_template('admin_topmenu.html')
 
+@app.route('/mypageback')
+def mypageback():
+    return render_template('mypage.html')
+
 @app.route('/foodlist')
 def food_list():
     food_list = db.select_all_foods()
     return render_template('food_list.html', food=food_list)
+
+@app.route('/userfoodlist')
+def user_food_list():
+    food_list = db.select_all_foods()
+    return render_template('user_food_list.html', food=food_list)
 
 @app.route('/foodeditinput')
 def food_edit_input():
@@ -46,6 +55,15 @@ def food_search():
     s_keyword=db.search_food(keyword)
     
     return render_template('search_result.html',food=s_keyword)
+
+
+@app.route('/user_food_search', methods=['POST'])
+def user_food_search():
+    keyword= request.form.get('keyword')
+    
+    s_keyword=db.search_food(keyword)
+    
+    return render_template('usearch_result.html',food=s_keyword)
 
 @app.route('/foodregisterinput')
 def food_register_input():
@@ -83,6 +101,12 @@ def food_delete():
 @app.route('/foodsearchinput')
 def food_search_input():
     return render_template('food_search.html')
+
+@app.route('/userfoodsearchinput')
+def user_food_search_input():
+    return render_template('ufood_search.html')
+
+
 
 
 

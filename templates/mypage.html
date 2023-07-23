@@ -16,13 +16,14 @@
   }
 </style>
 <body>
-  
+  盛岡青果店
   <div class="button008">
-  <h1>盛岡青果店</h1>
-商品を見る
-
-    <a class href="{{url_for('food_register_input')}}">商品を見る</a>
-
- 一覧（購入）
-</body>
+      <h1>商品一覧</h1>
+      <a href="{{url_for('user_food_list')}}">食品一覧</a>
+      <a href="{{url_for('user_food_search_input')}}">食品検索</a>
+      
+  
+      
+      <a class href="{{url_for('logout')}}">ログアウト</a>
+  </body>
 </html>

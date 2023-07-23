@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>商品名</th>
+                <th>輸入先</th>
+                <th>価格</th>
+                <th>在庫</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for foods in food %}
+            <tr>
+                <td>{{ foods[0] }}</td>
+                <td>{{ foods[1] }}</td>
+                <td>{{ foods[2] }}</td>
+                <td>{{ foods[3] }}</td>
+                <td>{{ foods[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+      <a class href="{{url_for('mypageback')}}">トップメニューに戻る</a>
+</body>
+</html>
