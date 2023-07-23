@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{url_for('static', filename='favicon/favicon.jpg')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kadai.css') }}">
     <title>Document</title>
 </head>
+<style>
+    body{
+        background-image: url("{{url_for('static',filename='images/back.jpg')}}");
+        background-size: cover
+    }
+</style>
 <body>
+    <div class="button008">
     登録が完了しました。
     <a class href="{{url_for('food_register_input')}}">商品登録に戻る</a>
     <a class href="{{url_for('admin_topmenu_back')}}">トップメニューに戻る</a>

@@ -2,10 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="{{url_for('static', filename='favicon/favicon.jpg')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kadai.css') }}">
+    <title>削除成功</title>
 </head>
+<style>
+    body{
+        background-image: url("{{url_for('static',filename='images/back.jpg')}}");
+        background-size: cover
+    }
+</style>
 <body>
+    <div class="button008">
     削除が完了しました。
     <a class href="{{url_for('food_delete_input')}}">商品削除に戻る</a>
     <a class href="{{url_for('admin_topmenu_back')}}">トップメニューに戻る</a>

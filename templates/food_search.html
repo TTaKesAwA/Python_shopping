@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="{{url_for('static', filename='favicon/favicon.jpg')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kadai.css') }}">
+    <title>商品検索</title>
 </head>
+<style>
+    body{
+        background-image: url("{{url_for('static',filename='images/back.jpg')}}");
+        background-size: cover
+    }
+</style>
 <body>
+    <div class="button008">
     <p>検索したい商品の商品名を入力してください。</p>
     <form action="{{url_for('food_search')}}" method="post">
     <input type="text" name="keyword"><br>

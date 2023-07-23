@@ -7,31 +7,22 @@
   {% block css %}
   <!-- CSS埋め込み -->
   {% endblock %}
-  <title>レイアウトサンプル</title>
+  <title>トップメニュー</title>
 </head>
+<style>
+  body{
+      background-image: url("{{url_for('static',filename='images/back.jpg')}}");
+      background-size: cover
+  }
+</style>
 <body>
-  <h1>ようこそ</h1>
-  {% block content %}
-  <!-- ここにメインコンテンツを埋め込む -->
-  {% endblock %}
-  <div class="flexbox">
-    <div class="productbox">
-      <img src="{{url_for('static', filename=name)}}"alt="no image"style="width:70px;height:110px;"href="{{url_for('index')}}">
-    </div>
-    <div class="productbox">
-      <img src="{{url_for('static', filename=name)}}"alt="no image"style="width:70px;height:110px;">
-    </div>
-    <div class="productbox">
-      <img src="{{url_for('static', filename=name)}}"alt="no image"style="width:70px;height:110px;">
-    </div>
-    <div class="productbox">
-      <img src="{{url_for('static', filename=name)}}"alt="no image"style="width:70px;height:110px;">
-    </div>
-  </div>
-  <footer class="footer bg-light fixed-bottom">
-    <div class="container">
-      <p class="text-muted text-center">© 2023 My Flask App</p>
-    </div>
-  </footer>
+  
+  <div class="button008">
+  <h1>盛岡青果店</h1>
+商品を見る
+
+    <a class href="{{url_for('food_register_input')}}">商品を見る</a>
+
+ 一覧（購入）
 </body>
 </html>

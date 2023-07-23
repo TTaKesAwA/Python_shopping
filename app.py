@@ -67,6 +67,9 @@ def food_register():
 def food_delete_input():
     return render_template('food_delete.html')
 
+@app.route('/adminlogout')
+def admin_logout():
+    return render_template('index.html')
 @app.route('/food_delete', methods=['POST'])
 def food_delete():
  
@@ -124,8 +127,10 @@ def logout():
 
 @app.route('/mypage', methods=['GET'])
 def mypage(): 
+    
     if 'user' in session:
-        return render_template('mypage.html', name='images/poteti.jpg')
+        return render_template('mypage.html')
+     
     else:
         return redirect(url_for('index'))
     

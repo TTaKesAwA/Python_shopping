@@ -2,10 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="{{url_for('static', filename='favicon/favicon.jpg')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kadai.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>商品削除</title>
 </head>
+<style>
+    body{
+        background-image: url("{{url_for('static',filename='images/back.jpg')}}");
+        background-size: cover
+    }
+</style>
 <body>
+    <div class="button008">
     削除する商品のIDを入力してください。
     <form action="{{url_for('food_delete')}}" method="post">
         ID:<input type="text" name="id"><br>

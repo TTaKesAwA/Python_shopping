@@ -85,6 +85,7 @@ def delete_food(id):
 
 #ユーザー関連
 
+    
 
 def get_salt():
     charset =string.ascii_letters + string.digits

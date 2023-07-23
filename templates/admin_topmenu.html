@@ -2,13 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="{{url_for('static', filename='favicon/favicon.jpg')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kadai.css') }}">
+    <title>トップメニュー</title>
 </head>
+<style>
+    body{
+        background-image: url("{{url_for('static',filename='images/back.jpg')}}");
+        background-size: cover
+    }
+</style>
 <body>
 盛岡青果店
+<div class="button008">
     <h1>商品一覧</h1>
-    <a class href="{{url_for('food_list')}}">食品一覧</a>
+    <a href="{{url_for('food_list')}}">食品一覧</a>
 
     <h1>商品登録</h1>
     <a class href="{{url_for('food_register_input')}}">食品登録</a>
@@ -21,5 +30,7 @@
 
     <h1>商品情報の編集</h1>
     <a class href="{{url_for('food_edit_input')}}">商品情報の編集</a>
+    <h1>ログアウト</h1>
+    <a class href="{{url_for('admin_logout')}}">ログアウト</a>
 </body>
 </html>

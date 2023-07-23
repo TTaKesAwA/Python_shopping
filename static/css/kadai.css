@@ -1,0 +1,53 @@
+@charset "UTF-8";
+body {
+    font-family: "Yu Gothic Medium", "游ゴシック Medium",  "游ゴシック体", "ヒラギノ角ゴ Pro W3", sans-serif;
+    line-height: 1.7;
+    color: #432; 
+}
+
+p{
+    text-align: center;
+}
+button{
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+.button008 a {
+    background: #eee;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 240px;
+    padding: 10px 25px;
+    color: #313131;
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+    z-index:0;
+    text-decoration: none;
+}
+.button008 a:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    display: block;
+    background: #6bb6ff;
+    transition: .3s;
+    left:0;
+    text-decoration: none;
+}
+.button008 a:hover {
+    color: #FFF;
+    text-decoration: none;
+}
+.button008 a:hover:before {
+    width: 100%;
+    z-index: -1;
+    text-decoration: none;
+}
