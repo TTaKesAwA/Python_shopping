@@ -15,6 +15,10 @@ app.secret_key =''.join(random.choices(string.ascii_letters,k=256))
 def admin_kari():
     return render_template('admin_topmenu.html')
 
+@app.route('/adminlogin')
+def admin_login():
+    return render_template('adminlogin.html')
+
 @app.route('/admintopmenuback')
 def admin_topmenu_back():
     return render_template('admin_topmenu.html')
@@ -204,9 +208,35 @@ def sample_register():
 if __name__ == "__main__":
     app.run(debug=True)
 
+#-----------------------------------------------------------------------------
+@app.route('adminlogin', methods=['POST'])
+def adminlogin():
+    username = request.form.get('username')
+    mail = request.form.get('mail')
+    password = request.form.get('password')
+    
+    if db.login(username, mail,password):
+        session['user'] = True
+        session.permanent = True
+        app.permanent_session_lifetime = timedelta(minutes=100)
+        
+        return redirect(url_for('admintopmenu'))
+    else:
+        error = 'ログインに失敗しました。'
+        input_data  = {
+            'username': username,
+            'mail': mail,
+            'password': password
+        }
+        return render_template('index.html', error = error, data = input_data)
 
 
-
-
-
+@app.route('/admintopmenu', methods=['GET'])
+def admintopmenu(): 
+    
+    if 'user' in session:
+        return render_template('admin_topmenu.html')
+     
+    else:
+        return redirect(url_for('index'))
 
